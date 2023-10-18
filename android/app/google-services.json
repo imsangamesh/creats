@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "854833508665",
+    "project_id": "creats-96",
+    "storage_bucket": "creats-96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854833508665:android:24513ab2d327a0c884b8e8",
+        "android_client_info": {
+          "package_name": "com.example.creats"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAThjPrsVdia217KaAR4GZcalC_Gm7J8Dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
