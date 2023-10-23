@@ -38,7 +38,7 @@ class HomeProfileHeader extends StatelessWidget {
       padding: const EdgeInsets.all(0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           /// ----------------------- `Greeting Text`
           Column(

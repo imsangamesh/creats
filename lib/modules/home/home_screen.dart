@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../core/helpers/my_helper.dart';
 import '../../core/utilities/utils.dart';
-import 'widgets/text_snippet_tile.dart';
+import 'widgets/note_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,7 +27,8 @@ class HomeScreen extends StatelessWidget {
           toolbarHeight: 90,
         ),
         body: StreamBuilder(
-          stream: fire.collection('text_snippets').snapshots(),
+          stream:
+              fire.collection('text_snippets').orderBy('createdAt').snapshots(),
           builder: (context, snapshot) {
             final snapData = snapshot.data;
 
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final data = snapData.docs[index].data();
 
-                return TextSnippetTile(data, cntrlr.primary());
+                return NoteTile(data, cntrlr.primary());
               },
             );
           },

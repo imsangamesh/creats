@@ -1,11 +1,12 @@
 import 'package:creats/core/themes/my_textstyles.dart';
+import 'package:creats/core/utilities/utils.dart';
 import 'package:creats/core/widgets/my_buttons.dart';
 import 'package:creats/modules/home/add_or_view_note.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TextSnippetTile extends StatelessWidget {
-  TextSnippetTile(this.data, this.color, {super.key});
+class NoteTile extends StatelessWidget {
+  NoteTile(this.data, this.color, {super.key});
 
   final Color color;
   final Map data;
@@ -34,11 +35,15 @@ class TextSnippetTile extends StatelessWidget {
             children: [
               MyIconBtn(
                 Icons.drive_file_rename_outline_rounded,
-                () => Get.to(AddOrViewNote(noteData: data)),
+                () => Get.to(() => AddOrViewNote(noteData: data)),
                 size: 35,
               ),
               const SizedBox(width: 7),
-              MyIconBtn(Icons.copy_rounded, () {}, size: 35),
+              MyIconBtn(
+                Icons.copy_rounded,
+                () => Utils.copy(data['body']),
+                size: 35,
+              ),
             ],
           ),
           children: [

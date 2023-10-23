@@ -3,7 +3,6 @@ import 'package:creats/core/constants/my_constants.dart';
 import 'package:creats/core/themes/my_colors.dart';
 import 'package:creats/core/themes/my_textstyles.dart';
 import 'package:creats/core/utilities/utils.dart';
-import 'package:creats/core/widgets/my_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
@@ -38,21 +37,23 @@ class _AddOrViewNoteState extends State<AddOrViewNote> {
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Add New'),
+            centerTitle: false,
+            title: Text(widget.noteData == null
+                ? 'Add New Note'
+                : widget.noteData!['title']),
             actions: [
               if (widget.noteData != null)
-                MyIconBtn(
-                  Icons.delete_forever,
-                  () => Utils.confirmDialogBox(
+                IconButton(
+                  icon: const Icon(Icons.delete_forever),
+                  onPressed: () => Utils.confirmDialogBox(
                     'Oops!',
                     'do you wanna delete this note?',
                     yesFun: () => deleteNote(),
                   ),
                 ),
-              const SizedBox(width: 5),
-              MyIconBtn(
-                Icons.copy_rounded,
-                () => Utils.copy(_bodyCntrlr().text),
+              IconButton(
+                icon: const Icon(Icons.copy_rounded),
+                onPressed: () => Utils.copy(_bodyCntrlr().text),
               ),
               const SizedBox(width: 10)
             ],
